@@ -273,5 +273,7 @@ bipi/media/
 
 
 .ipython/
-.env
-.envs/*
+.env
+
+.envs/*
+
