@@ -77,6 +77,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "bipi.users.apps.UsersConfig",
     "bipi.products.apps.ProductsConfig",
+    "bipi.inventories.apps.InventoriesConfig",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
