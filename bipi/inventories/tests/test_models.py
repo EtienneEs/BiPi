@@ -1,11 +1,15 @@
 import pytest
 
-from .factories import inventory
+from .factories import stock
 
 pytestmark = pytest.mark.django_db
 
 
-def test_inventory__str__(inventory: inventory):
-    string = f'Inventory: [{inventory.id}] {inventory.product} {inventory.quantity}'
-    assert inventory.__str__() == string
-    assert str(inventory) == string
+def test_stock__str__(stock: stock):
+    string = f'Stock: [{stock.id}] {stock.product} {stock.quantity}'
+    assert stock.__str__() == string
+    assert str(stock) == string
+
+
+def test_stock_get_absolute_url(stock: stock):
+    assert stock.get_absolute_url() == f'/inventories/{stock.id}/'

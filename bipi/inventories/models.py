@@ -1,9 +1,13 @@
 from django.db import models
+from django.urls import reverse
+
 from model_utils.models import TimeStampedModel
+
 from ..products.models import Product
 
 
-class Inventory(TimeStampedModel):
+class Stock(TimeStampedModel):
+    """Finished goods """
     product = models.OneToOneField(
         Product,
         null=False,
@@ -17,4 +21,7 @@ class Inventory(TimeStampedModel):
     )
 
     def __str__(self):
-        return f'Inventory: [{self.id}] {self.product} {self.quantity}'
+        return f'Stock: [{self.id}] {self.product} {self.quantity}'
+
+    def get_absolute_url(self):
+        return reverse('inventories:stock_detail', kwargs={'pk': self.pk})
