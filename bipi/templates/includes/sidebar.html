@@ -21,10 +21,10 @@
               <p>User Profile</p>
             </a>
           </li>
-          <li class="nav-item {% if 'products' in request.path %} active {% endif %}">
-            <a class="nav-link" href="{% url 'products:product_list' %}">
+          <li class="nav-item {% if 'inventories' in request.path %} active {% endif %}">
+            <a class="nav-link" href="{% url 'inventories:stock_list' %}">
               <i class="material-icons">content_paste</i>
-              <p>Products</p>
+              <p>Stocks</p>
             </a>
           </li>
           <li class="nav-item {% if 'ui-typography' in segment %} active {% endif %}">
@@ -34,9 +34,9 @@
             </a>
           </li>
           <li class="nav-item {% if 'ui-icons' in segment %} active {% endif %}">
-            <a class="nav-link" href="/ui-icons.html">
+            <a class="nav-link" href="{% url 'products:product_list' %}">
               <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
+              <p>Products</p>
             </a>
           </li>
           <li class="nav-item {% if 'ui-maps' in segment %} active {% endif %}">

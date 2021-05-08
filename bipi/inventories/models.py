@@ -21,7 +21,7 @@ class Stock(TimeStampedModel):
     )
 
     def __str__(self):
-        return f'Stock: [{self.id}] {self.product} {self.quantity}'
+        return f'Stock: {self.product.name}'
 
     def get_absolute_url(self):
         return reverse('inventories:stock_detail', kwargs={'pk': self.pk})

@@ -18,6 +18,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     path("products/", include("bipi.products.urls", namespace="products")),
+    path("inventories/", include("bipi.inventories.urls", namespace="inventories")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # API URLS

@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html' %}
+{% block title %}{{ stock }}{% endblock %}
+
+{% block content %}
+<h1>{{ stock }}</h1>
+
+<p>{{ stock.product }}</p>
+<p>{{ stock.quantity }}</p>
+
+{% endblock %}

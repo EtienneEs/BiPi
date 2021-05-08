@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Stocks{% endblock %}
+
+{% block content %}
+  <h1>Stocks</h1>
+  <!-- Stocks list -->
+  <div class="section">
+    <div class="table-responsive">
+      <table class="table table-bordered, table-hover" id="Stocks">
+        <thead>
+          <th>Stock Id</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Last Modified</th>
+        </thead>
+        <tbody>
+          {% for stock in stock_list %}
+          <tr>
+            <td>
+              <a href="{{ stock.get_absolute_url }}">{{stock.id}}</a>
+            </td>
+            <td>
+              <a href="{{ stock.product.get_absolute_url }}">{{stock.product.name}}</a>
+            </td>
+            <td>{{ stock.quantity }}</td>
+            <td>{{ stock.modified }}</td>
+            <td>
+              <p>
+                <a href="{{ stock.get_absolute_url }}">Details</a>
+              </p>
+              <p>
+                <a href="{{ stock.get_absolute_url }}update/">Update</a>
+              </p>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="text-right">
+      <a href="{% url 'inventories:stock_create' %}" class="btn btn-primary">Create Stock</a>
+    </div>
+  </div>
+{% endblock %}

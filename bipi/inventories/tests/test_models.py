@@ -6,7 +6,7 @@ pytestmark = pytest.mark.django_db
 
 
 def test_stock__str__(stock: stock):
-    string = f'Stock: [{stock.id}] {stock.product} {stock.quantity}'
+    string = f'Stock: {stock.product.name}'
     assert stock.__str__() == string
     assert str(stock) == string
 
