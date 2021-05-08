@@ -41,6 +41,21 @@ class TestProductListView:
         assertContains(response, product2.name)
 
 
+class TestProductDetailView:
+
+    def test_status(self, rf, admin_user, product):
+        url = reverse('products:product_detail', kwargs={'pk': product.pk})
+        request = rf.get(url)
+        request.user = admin_user
+        response = ProductDetailView.as_view()(request, pk=product.pk)
+        assert response.status_code == 200
+
+    def test_uses_correct_template(self, admin_client, product):
+        url = reverse('products:product_detail', kwargs={'pk': product.pk})
+        response = admin_client.get(url)
+        assertTemplateUsed(response, 'products/product_detail.html')
+
+
 class TestProductCreateView:
 
     def test_status(self, rf, admin_user):
@@ -64,13 +79,13 @@ class TestProductCreateView:
         assert new_product.name == form_data['name']
 
 
-class TestProductDetailView:
+class TestProductUpdateView:
 
     def test_status(self, rf, admin_user, product):
         url = reverse('products:product_update', kwargs={'pk': product.pk})
         request = rf.get(url)
         request.user = admin_user
-        response = ProductUpdateView.as_view()(request, pk=product.pk)
+        response = ProductDetailView.as_view()(request, pk=product.pk)
         assert response.status_code == 200
 
     def test_uses_correct_template(self, admin_client, product):
