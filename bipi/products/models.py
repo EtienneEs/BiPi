@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from model_utils.models import TimeStampedModel
 
 
@@ -12,3 +13,6 @@ class Product(TimeStampedModel):
 
     def __str__(self):
         return f'Product: {self.name}'
+
+    def get_absolute_url(self):
+        return reverse('products:product_detail', kwargs={'pk': self.pk})
