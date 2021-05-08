@@ -18,3 +18,4 @@ class InventoryFactory(DjangoModelFactory):
 
     class Meta:
         model = Inventory
+        django_get_or_create = ('product',)

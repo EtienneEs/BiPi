@@ -4,7 +4,7 @@ from ..products.models import Product
 
 
 class Inventory(TimeStampedModel):
-    product = models.ForeignKey(
+    product = models.OneToOneField(
         Product,
         null=False,
         blank=False,
