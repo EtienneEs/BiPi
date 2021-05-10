@@ -6,7 +6,7 @@ from django.views.generic import (
     UpdateView
 )
 
-from .models import Product
+from .models import Product, Price
 from .forms import ProductForm
 
 
@@ -31,3 +31,25 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     template_name = 'products/product_create.html'
     model = Product
     form_class = ProductForm
+
+
+class PriceListView(LoginRequiredMixin, ListView):
+    template_name = 'products/price_list.html'
+    queryset = Price.objects.all()
+
+
+class PriceDetailView(LoginRequiredMixin, DetailView):
+    template_name = 'products/price_detail.html'
+    model = Price
+
+
+class PriceUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = 'products/price_create.html'
+    model = Price
+    fields = ['price', ]
+
+
+class PriceCreateView(LoginRequiredMixin, CreateView):
+    template_name = 'products/price_create.html'
+    model = Price
+    fields = ['product', 'organization', 'price']

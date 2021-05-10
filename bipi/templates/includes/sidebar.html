@@ -27,13 +27,13 @@
               <p>Stocks</p>
             </a>
           </li>
-          <li class="nav-item {% if 'ui-typography' in segment %} active {% endif %}">
-            <a class="nav-link" href="/ui-typography.html">
+          <li class="nav-item {% if 'prices' in request.path %} active {% endif %}">
+            <a class="nav-link" href="{% url 'products:price_list' %}">
               <i class="material-icons">library_books</i>
-              <p>Typography</p>
+              <p>Prices</p>
             </a>
           </li>
-          <li class="nav-item {% if 'ui-icons' in segment %} active {% endif %}">
+          <li class="nav-item {% if 'product' in request.path and not 'prices' in request.path%} active {% endif %}">
             <a class="nav-link" href="{% url 'products:product_list' %}">
               <i class="material-icons">bubble_chart</i>
               <p>Products</p>

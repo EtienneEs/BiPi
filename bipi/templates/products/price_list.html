@@ -1,0 +1,44 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Prices{% endblock %}
+
+{% block content %}
+  <h1>Prices</h1>
+  <!-- Prices list -->
+  <div class="section">
+    <div class="table-responsive">
+      <table class="table table-bordered, table-hover" id="Prices">
+        <thead>
+          <th>Price Id</th>
+          <th>Product</th>
+          <th>Organization</th>
+          <th>Price</th>
+          <th>Last Modified</th>
+        </thead>
+        <tbody>
+          {% for price in price_list %}
+          <tr>
+            <td>
+              <a href="{{ price.get_absolute_url }}">{{price.id}}</a>
+            </td>
+            <td>{{ price.product }}</td>
+            <td>{{ price.organization }}</td>
+            <td>{{ price.price }}</td>
+            <td>{{ price.modified }}</td>
+            <td>
+              <p>
+                <a href="{{ price.get_absolute_url }}">Details</a>
+              </p>
+              <p>
+                <a href="{{ price.get_absolute_url }}update/">Update</a>
+              </p>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="text-right">
+      <a href="{% url 'products:price_create' %}" class="btn btn-primary">Create Price</a>
+    </div>
+  </div>
+{% endblock %}

@@ -44,3 +44,6 @@ class Price(TimeStampedModel):
 
     def __str__(self):
         return f'{self.organization} - {self.product} {self.price}'
+
+    def get_absolute_url(self):
+        return reverse('products:price_detail', kwargs={'pk': self.pk})
