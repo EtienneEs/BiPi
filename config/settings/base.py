@@ -72,6 +72,7 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
+    "djmoney",
 ]
 
 LOCAL_APPS = [
@@ -308,5 +309,8 @@ REST_FRAMEWORK = {
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
 CORS_URLS_REGEX = r"^/api/.*$"
-# Your stuff...
+
+
+# Django-Money
 # ------------------------------------------------------------------------------
+CURRENCIES = ('EUR', 'CHF')
