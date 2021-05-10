@@ -78,6 +78,7 @@ LOCAL_APPS = [
     "bipi.users.apps.UsersConfig",
     "bipi.products.apps.ProductsConfig",
     "bipi.inventories.apps.InventoriesConfig",
+    "bipi.accounts.apps.AccountsConfig",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
